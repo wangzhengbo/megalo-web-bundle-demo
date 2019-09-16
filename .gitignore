@@ -1,6 +1,9 @@
 node_modules
 dist*
 
+.megalo-tmp
+.megalo-h5-tmp
+
 # local env files
 .env.local
 .env.*.local

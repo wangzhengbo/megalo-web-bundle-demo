@@ -13,7 +13,10 @@
     "dev:wechat": "megalo-cli-service serve",
     "dev:toutiao": "megalo-cli-service serve --platform toutiao",
     "dev:web": "megalo-cli-service serve --platform web",
-    "lint": "megalo-cli-service lint"
+    "lint": "megalo-cli-service lint",
+    "postinstall": "node -r esm tools/rewriteVueTemplateCompilerVersion.js",
+    "ncu": "ncu",
+    "ncu:upgrade": "ncu -u"
   },
   "license": "ISC",
   "babel": {
@@ -22,24 +25,26 @@
     ]
   },
   "devDependencies": {
-    "@megalo/babel-preset-app": "latest",
-    "@megalo/cli-plugin-eslint": "^1.0.0-beta.1",
-    "@megalo/cli-service": "latest",
-    "@megalo/eslint-config-standard": "latest",
-    "@megalo/target": "^0.7.4-0",
-    "@megalo/template-compiler": "latest",
-    "eslint": "^5.15.3",
-    "node-sass": "^4.10.0",
-    "sass-loader": "^7.1.0"
+    "@megalo/babel-preset-app": "~1.0.0-alpha.4",
+    "@megalo/cli-plugin-eslint": "~1.0.0-beta.1",
+    "@megalo/cli-service": "~1.0.0-beta.2",
+    "@megalo/eslint-config-standard": "~1.0.0",
+    "@megalo/target": "~0.7.4-0",
+    "@megalo/template-compiler": "~0.10.1",
+    "eslint": "~6.4.0",
+    "esm": "~3.2.25",
+    "npm-check-updates": "~3.1.23",
+    "sass": "~1.22.12",
+    "sass-loader": "~8.0.0"
   },
   "dependencies": {
-    "@megalo/api": "latest",
-    "@megalo/cli-plugin-web": "^1.0.0-alpha.3",
-    "@megalo/vhtml-plugin": "latest",
-    "megalo": "latest",
-    "octoparse": "^0.4.2",
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.7",
-    "vue-template-compiler": "^2.5.17"
+    "@megalo/api": "0.5.7",
+    "@megalo/cli-plugin-web": "~1.0.0-alpha.3",
+    "@megalo/vhtml-plugin": "0.1.2",
+    "megalo": "0.10.1",
+    "octoparse": "~0.4.2",
+    "vue": "~2.6.10",
+    "vue-router": "~3.1.3",
+    "vue-template-compiler": "~2.6.10"
   }
 }

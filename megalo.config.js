@@ -11,7 +11,6 @@ module.exports = {
 
   configureWebpack: config => {
     // 你可以在这里粗放的修改webpack的配置并返回
-    
 
     return config
   },
@@ -39,7 +38,7 @@ module.exports = {
       stylus: {
         // https://github.com/shama/stylus-loader
       },
-        // https://github.com/megalojs/megalo-px2rpx-loader
+      // https://github.com/megalojs/megalo-px2rpx-loader
       px2rpx: {
         rpxUnit: 0.5
       }

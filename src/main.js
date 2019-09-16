@@ -5,6 +5,15 @@ import VHtmlPlugin from '@megalo/vhtml-plugin'
 Vue.use(VHtmlPlugin)
 const app = new Vue(App)
 
+if (typeof window !== 'undefined') {
+  window.getApp = () => {
+    if (typeof app.globalData === 'undefined') {
+      app.globalData = typeof App.globalData === 'function' ? App.globalData() : App.globalData
+    }
+    return app
+  }
+}
+
 app.$mount()
 
 export default {

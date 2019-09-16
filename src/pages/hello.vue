@@ -24,7 +24,8 @@ export default {
   created () {
     console.log('Page [hello] Vue created')
     var appInstance = getApp()
-    console.log(appInstance.globalData) // I am global data
+    console.log('appInstance', appInstance)
+    console.log('appInstance.globalData', appInstance.globalData) // I am global data\
   },
   beforeMount () {
     console.log('Page [hello] Vue beforeMount')
