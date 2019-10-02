@@ -1,6 +1,7 @@
 import App from './App'
 import Vue from 'vue'
 import VHtmlPlugin from '@megalo/vhtml-plugin'
+import 'mpvue-weui/src/style/weui.css'
 
 Vue.use(VHtmlPlugin)
 const app = new Vue(App)
@@ -15,6 +16,12 @@ if (typeof window !== 'undefined') {
 }
 
 app.$mount()
+
+console.log('Megalo.ENV_TYPE', Megalo.ENV_TYPE)
+console.log('Megalo.getEnv()', Megalo.getEnv())
+Megalo.getSystemInfo().then(res => {
+  console.log('res', res)
+})
 
 export default {
   config: {

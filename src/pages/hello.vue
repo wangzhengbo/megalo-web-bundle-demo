@@ -3,14 +3,21 @@
       <img class="img" src="../static/imgs/megalo_logo.png" @touchstart="changeStat">
       <hello-world :color="color"></hello-world>
       <h1 class="txt" v-show="t%2==1">click logo::{{t}}</h1>
+      <mp-button type="primary" size="large" btnClass="mb15" @click="onBtnClick">默认按钮</mp-button>
+      <mg-avatar :open-data="{type: 'userAvatarUrl'}" text="Hello" />
   </div>
 </template>
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
+import mpButton from 'mpvue-weui/src/button'
+import mgAvatar from 'megalo-ui/avatar'
+
 export default {
   components: {
-    HelloWorld
+    HelloWorld,
+    mpButton,
+    mgAvatar
   },
   data () {
     return {
@@ -60,6 +67,9 @@ export default {
     changeStat () {
       this.t++
       this.color = '#' + Math.floor(Math.random() * 0xffffff).toString(16)
+    },
+    onBtnClick () {
+      console.log('on button click')
     }
   }
 }

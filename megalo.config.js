@@ -1,3 +1,7 @@
+const path = require('path')
+const webpack = require('webpack')
+const platform = process.env.platform
+
 module.exports = {
   appEntry: {
     jsEntry: 'src/main.js',
@@ -11,6 +15,36 @@ module.exports = {
 
   configureWebpack: config => {
     // 你可以在这里粗放的修改webpack的配置并返回
+
+    config.resolve = config.resolve || {}
+    config.resolve.alias = config.resolve.alias || {}
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'megalo-ui': '@megalo/ui/dist/components'
+    }
+
+    // console.log('config', config.module.rules[0])
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        'css-loader',
+        {
+          loader: 'px2rpx-loader',
+          options: {
+            rpxUnit: 1,
+            rpxPrecision: 6
+          }
+        },
+        'sass-loader'
+      ]
+    })
+
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        'Megalo': [path.resolve(`./node_modules/@megalo/api/platforms/${platform}`), 'default']
+      })
+    )
 
     return config
   },
